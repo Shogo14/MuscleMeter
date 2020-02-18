@@ -1,0 +1,23 @@
+Master
+
+-WorkOutMenu
+work_name
+type_id
+
+-WorkOutType
+type_name
+
+
+Transaction
+
+-WorkOutHistory
+
+
+<a class="TermContent-addRow" id="addRow">
+    <span class="TermContent-addRowButton">
+        <button class="UILinkButton" type="button">
+            <span>+ カードを追加</span>
+        </button><
+    /span>
+</a>
+

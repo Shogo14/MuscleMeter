@@ -1,0 +1,2 @@
+module WorkMenusHelper
+end

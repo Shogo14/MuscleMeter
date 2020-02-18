@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_11_231233) do
+ActiveRecord::Schema.define(version: 2020_02_16_060136) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -28,4 +28,20 @@ ActiveRecord::Schema.define(version: 2020_02_11_231233) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "work_menu_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "work_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "work_menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.bigint "work_menu_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["work_menu_type_id", "created_at"], name: "index_work_menus_on_work_menu_type_id_and_created_at"
+    t.index ["work_menu_type_id"], name: "index_work_menus_on_work_menu_type_id"
+  end
+
+  add_foreign_key "work_menus", "work_menu_types"
 end
