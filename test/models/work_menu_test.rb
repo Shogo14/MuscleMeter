@@ -3,7 +3,7 @@ require 'test_helper'
 
 class WorkMenuTest < ActiveSupport::TestCase
   def setup
-    @workmenu = WorkMenu.new(name: "スクワッド", work_type: "バーベル")
+    @workmenu = WorkMenu.new(name: "スクワッド", work_menu_type_id: 1)
   end
 
   test "ワークメニューが存在する場合" do

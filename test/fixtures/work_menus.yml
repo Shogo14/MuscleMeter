@@ -2,8 +2,8 @@
 
 one:
   name: 
-  work_type: MyText
+  work_menu_type_id: MyText
 
 two:
   name: 
-  work_type: MyText
+  work_menu_type_id: MyText

@@ -1,5 +1,6 @@
 class WorkMenusController < ApplicationController
-    before_action :index_work_menu
+    before_action :index_work_menu, only: [:create, :index]
+    before_action :work_menu_types, only: [:index]
     def index
         @work_menus = WorkMenu.all
     end
@@ -15,12 +16,15 @@ class WorkMenusController < ApplicationController
     end
 
     private
-        # 正しいユーザーかどうか確認
         def index_work_menu
             @work_menu = WorkMenu.new
         end
 
         def work_params
             params.require(:work_menu).permit(:name, :work_type)
+        end
+
+        def work_menu_types
+          @work_menu_types = WorkMenuType.all
         end
 end

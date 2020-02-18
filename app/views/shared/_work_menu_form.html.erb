@@ -1,9 +1,11 @@
 <%= form_for(@work_menu) do |f| %>
     <div class="work_menu_field">
+        <%= f.label :トレーニング名 %>
         <%= f.text_field :name, placeholder: "新しいトレーニング名を登録しよう！" %>
     </div>
     <div class="work_menu_field">
-        <%= f.collection_select :work_type, @work_menus, :work_type, :work_type, include_blank: "選択して下さい" %>
+        <%= f.label :種類 %>
+        <%= f.collection_select :id, @work_menu_types, :id, :work_type, include_blank: "選択して下さい" %>
     </div>
     <%= f.submit "登録", class: "btn btn-primary" %>
 <% end %>
