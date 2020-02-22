@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class WorkMenusControllerTest < ActionDispatch::IntegrationTest
+class WorkOutTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

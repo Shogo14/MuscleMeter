@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TrainingBodyPartTest < ActiveSupport::TestCase
+class BodyPartTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

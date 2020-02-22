@@ -36,68 +36,68 @@ User.create!(name:  "Kinjo Shogo",
 end
 
 
-#########WorkMenuTypeテーブル#################
-WorkMenuType.create!(work_type: "バーベルトレーニング")
-WorkMenuType.create!(work_type: "ダンベルトレーニング")
-WorkMenuType.create!(work_type: "自重トレーニング")
-WorkMenuType.create!(work_type: "スミスマシン")
-WorkMenuType.create!(work_type: "ケーブルマシン")
+#########WorkTrainingTypeテーブル#################
+TrainingType.create!(name: "バーベルトレーニング")
+TrainingType.create!(name: "ダンベルトレーニング")
+TrainingType.create!(name: "自重トレーニング")
+TrainingType.create!(name: "スミスマシン")
+TrainingType.create!(name: "ケーブルマシン")
 
 
 
-#########TrainingBodyPartテーブル#################
-TrainingBodyPart.create!(name: "上腕二頭筋")
-TrainingBodyPart.create!(name: "上腕三頭筋")
-TrainingBodyPart.create!(name: "大胸筋")
-TrainingBodyPart.create!(name: "三角筋")
-TrainingBodyPart.create!(name: "広背筋")
-TrainingBodyPart.create!(name: "僧帽筋")
-TrainingBodyPart.create!(name: "大腿四頭筋")
-TrainingBodyPart.create!(name: "脊柱起立筋")
+#########BodyPartテーブル#################
+BodyPart.create!(name: "上腕二頭筋")
+BodyPart.create!(name: "上腕三頭筋")
+BodyPart.create!(name: "大胸筋")
+BodyPart.create!(name: "三角筋")
+BodyPart.create!(name: "広背筋")
+BodyPart.create!(name: "僧帽筋")
+BodyPart.create!(name: "大腿四頭筋")
+BodyPart.create!(name: "脊柱起立筋")
 
 
-#########WorkMenuテーブル#################
-WorkMenu.create!(name: "スクワッド",
-                 work_menu_type_id: 1,
-                 training_body_part_id: 7)
+#########WorkOutテーブル#################
+WorkOut.create!(name: "スクワッド",
+                 training_type_id: 1,
+                 body_part_id: 7)
 
-WorkMenu.create!(name: "デッドリフト",
-                 work_menu_type_id: 1,
-                 training_body_part_id: 8)
+WorkOut.create!(name: "デッドリフト",
+                 training_type_id: 1,
+                 body_part_id: 8)
 
-WorkMenu.create!(name: "ベンチプレス",
-                 work_menu_type_id: 1,
-                 training_body_part_id: 3)
+WorkOut.create!(name: "ベンチプレス",
+                 training_type_id: 1,
+                 body_part_id: 3)
 
-WorkMenu.create!(name: "オーバーヘッドプレス",
-                 work_menu_type_id: 1,
-                 training_body_part_id: 4)
+WorkOut.create!(name: "オーバーヘッドプレス",
+                 training_type_id: 1,
+                 body_part_id: 4)
 
-WorkMenu.create!(name: "ベントオーバーロウ",
-                 work_menu_type_id: 1,
-                 training_body_part_id: 5)
+WorkOut.create!(name: "ベントオーバーロウ",
+                 training_type_id: 1,
+                 body_part_id: 5)
 
-WorkMenu.create!(name: "スカルクラッシャー",
-                 work_menu_type_id: 1,
-                 training_body_part_id: 2)
+WorkOut.create!(name: "スカルクラッシャー",
+                 training_type_id: 1,
+                 body_part_id: 2)
 
-WorkMenu.create!(name: "ダンベルハンマーカール",
-                 work_menu_type_id: 2,
-                 training_body_part_id: 1)
+WorkOut.create!(name: "ダンベルハンマーカール",
+                 training_type_id: 2,
+                 body_part_id: 1)
 
-WorkMenu.create!(name: "ダンベルショルダープレス",
-                 work_menu_type_id: 2,
-                 training_body_part_id: 4)
+WorkOut.create!(name: "ダンベルショルダープレス",
+                 training_type_id: 2,
+                 body_part_id: 4)
 
-WorkMenu.create!(name: "ダンベルサイドレイズ",
-                 work_menu_type_id: 2,
-                 training_body_part_id: 4)
+WorkOut.create!(name: "ダンベルサイドレイズ",
+                 training_type_id: 2,
+                 body_part_id: 4)
 
-WorkMenu.create!(name: "プッシュアップ",
-                 work_menu_type_id: 4,
-                 training_body_part_id: 2)
+WorkOut.create!(name: "プッシュアップ",
+                 training_type_id: 4,
+                 body_part_id: 2)
 
-WorkMenu.create!(name: "チンニング",
-                 work_menu_type_id: 4,
-                 training_body_part_id: 5)
+WorkOut.create!(name: "チンニング",
+                 training_type_id: 4,
+                 body_part_id: 5)
 

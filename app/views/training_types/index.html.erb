@@ -1,0 +1,19 @@
+<% provide(:title, 'All TrainingTypes') %>
+<h1>トレーニングタイプ一覧</h1>
+<div class ="new_work">
+  <%= render 'training_type_form' %>
+</div>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">トレーニングタイプ</th>
+      <% if logged_in? && current_user.admin? %>
+        <th scope="col">削除</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+  <%= render @training_types %>
+  </tbody>
+</table>
+

@@ -1,0 +1,10 @@
+<tr>
+  <td><%= link_to work_out.name, work_out %></td>
+  <td><%= link_to work_out.training_type.name, work_out.training_type %></td>
+  <td><%= link_to work_out.body_part.name, work_out.body_part %></td>
+  <% if logged_in? && current_user.admin? %>
+    <td>
+      <%= link_to "delete", work_out, method: :delete,data: { confirm: "本当に削除しますか？" } %>
+    </td>
+  <% end %>
+</tr>

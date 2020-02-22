@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_060136) do
+ActiveRecord::Schema.define(version: 2020_02_22_100010) do
 
-  create_table "training_body_parts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "body_parts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "training_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,26 +40,20 @@ ActiveRecord::Schema.define(version: 2020_02_17_060136) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  create_table "work_menu_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "work_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "work_menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "work_outs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.bigint "work_menu_type_id"
-    t.bigint "training_body_part_id"
+    t.bigint "training_type_id"
+    t.bigint "body_part_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name", "training_body_part_id"], name: "index_work_menus_on_name_and_training_body_part_id", unique: true
-    t.index ["name", "work_menu_type_id"], name: "index_work_menus_on_name_and_work_menu_type_id", unique: true
-    t.index ["training_body_part_id", "created_at"], name: "index_work_menus_on_training_body_part_id_and_created_at"
-    t.index ["training_body_part_id"], name: "index_work_menus_on_training_body_part_id"
-    t.index ["work_menu_type_id", "created_at"], name: "index_work_menus_on_work_menu_type_id_and_created_at"
-    t.index ["work_menu_type_id"], name: "index_work_menus_on_work_menu_type_id"
+    t.index ["body_part_id", "created_at"], name: "index_work_outs_on_body_part_id_and_created_at"
+    t.index ["body_part_id"], name: "index_work_outs_on_body_part_id"
+    t.index ["name", "body_part_id"], name: "index_work_outs_on_name_and_body_part_id", unique: true
+    t.index ["name", "training_type_id"], name: "index_work_outs_on_name_and_training_type_id", unique: true
+    t.index ["training_type_id", "created_at"], name: "index_work_outs_on_training_type_id_and_created_at"
+    t.index ["training_type_id"], name: "index_work_outs_on_training_type_id"
   end
 
-  add_foreign_key "work_menus", "training_body_parts"
-  add_foreign_key "work_menus", "work_menu_types"
+  add_foreign_key "work_outs", "body_parts"
+  add_foreign_key "work_outs", "training_types"
 end

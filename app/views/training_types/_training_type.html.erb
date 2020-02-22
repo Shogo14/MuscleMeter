@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to training_type.name, training_type %></td>
+  <% if logged_in? && current_user.admin? %>
+    <td>
+      <%= link_to "delete", training_type, method: :delete,data: { confirm: "本当に削除しますか？" } %>
+    </td>
+  <% end %>
+</tr>
