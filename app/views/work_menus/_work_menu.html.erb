@@ -1,3 +1,7 @@
-<li>
-  <%= link_to work_menu.name, work_menu %>
-</li>
+
+<tr>
+  <th scope="row"><%= work_menu.id %></th>
+  <td><%= link_to work_menu.name, work_menu %></td>
+  <td><%= link_to work_menu.work_menu_type.work_type, work_menu.work_menu_type %></td>
+  <td><%= link_to work_menu.training_body_part.name, work_menu.training_body_part %></td>
+</tr>

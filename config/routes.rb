@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :work_menus
+  resources :work_menu_types
+  resources :training_body_parts
 end

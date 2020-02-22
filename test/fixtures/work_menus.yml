@@ -2,8 +2,10 @@
 
 one:
   name: 
-  work_menu_type_id: MyText
+  work_menu_type_id: 1
+  training_body_part_id: 1
 
 two:
   name: 
-  work_menu_type_id: MyText
+  work_menu_type_id: 1
+  training_body_part_id: 1

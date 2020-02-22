@@ -1,8 +1,16 @@
 <% provide(:title, 'All users') %>
 <h1>トレーニングメニュー一覧</h1>
-<%= render 'shared/work_menu_form' %>
-
-<ul class="users">
-    <%= render @work_menus %>
-</ul>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">トレーニング名</th>
+      <th scope="col">種類</th>
+      <th scope="col">部位</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= render @work_menus %>
+  </tbody>
+</table>
 

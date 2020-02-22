@@ -1,0 +1,10 @@
+<%= form_for(@work_menu) do |f| %>
+    <div class="work_menu_field" style="display:inline-flex">
+        <%= f.text_field :name, placeholder: "新規トレーニング名" %>
+        <%= f.collection_select :work_menu_type_id, @work_menu_types, :id, :work_type, include_blank: "種類" %>
+        <%= f.collection_select :training_body_part_id, @training_body_parts, :id, :name, include_blank: "部位" %>
+    </div>
+    <div class="work_menu_field">
+    </div>
+    <%= f.submit "登録", class: "btn btn-primary" %>
+<% end %>

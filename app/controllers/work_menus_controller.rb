@@ -1,6 +1,6 @@
 class WorkMenusController < ApplicationController
-    before_action :index_work_menu, only: [:create, :index]
-    before_action :work_menu_types, only: [:index]
+    before_action :work_menu_types, only: [:create, :index, :new]
+    before_action :training_body_parts, only: [:create, :index, :new]
     def index
         @work_menus = WorkMenu.all
     end
@@ -11,20 +11,25 @@ class WorkMenusController < ApplicationController
         flash[:success] = "新しいトレーニングメニューの登録が完了しました。"
         redirect_to work_menus_url
       else
-        # render 'new'
+        flash[:info] = "失敗。"
+        redirect_to work_menus_url
       end
     end
 
-    private
-        def index_work_menu
-            @work_menu = WorkMenu.new
-        end
+    def new
+      @work_menu = WorkMenu.new
+    end
 
+    private
         def work_params
-            params.require(:work_menu).permit(:name, :work_type)
+            params.require(:work_menu).permit(:name, :work_menu_type_id, :training_body_part_id)
         end
 
         def work_menu_types
           @work_menu_types = WorkMenuType.all
+        end
+
+        def training_body_parts
+          @training_body_parts = TrainingBodyPart.all
         end
 end
