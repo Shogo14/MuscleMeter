@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-Barbell:
-  name: バーベル
+one:
+  name: MyString
 
-Dumbbell:
-  name: ダンベル
+two:
+  name: MyString

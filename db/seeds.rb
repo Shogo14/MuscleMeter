@@ -23,17 +23,17 @@ User.create!(name:  "Kinjo Shogo",
              activated: true,
              activated_at: Time.zone.now)
 
-40.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password,
-               activated: true,
-               activated_at: Time.zone.now)
-end
+# 40.times do |n|
+#   name  = Faker::Name.name
+#   email = "example-#{n+1}@railstutorial.org"
+#   password = "password"
+#   User.create!(name:  name,
+#                email: email,
+#                password:              password,
+#                password_confirmation: password,
+#                activated: true,
+#                activated_at: Time.zone.now)
+# end
 
 
 #########WorkTrainingTypeテーブル#################
@@ -56,48 +56,108 @@ BodyPart.create!(name: "大腿四頭筋")
 BodyPart.create!(name: "脊柱起立筋")
 
 
-#########WorkOutテーブル#################
-WorkOut.create!(name: "スクワッド",
+#########TrainingMenuテーブル#################
+TrainingMenu.create!(name: "スクワッド",
                  training_type_id: 1,
                  body_part_id: 7)
 
-WorkOut.create!(name: "デッドリフト",
+TrainingMenu.create!(name: "デッドリフト",
                  training_type_id: 1,
                  body_part_id: 8)
 
-WorkOut.create!(name: "ベンチプレス",
+TrainingMenu.create!(name: "ベンチプレス",
                  training_type_id: 1,
                  body_part_id: 3)
 
-WorkOut.create!(name: "オーバーヘッドプレス",
+TrainingMenu.create!(name: "オーバーヘッドプレス",
                  training_type_id: 1,
                  body_part_id: 4)
 
-WorkOut.create!(name: "ベントオーバーロウ",
+TrainingMenu.create!(name: "ベントオーバーロウ",
                  training_type_id: 1,
                  body_part_id: 5)
 
-WorkOut.create!(name: "スカルクラッシャー",
+TrainingMenu.create!(name: "スカルクラッシャー",
                  training_type_id: 1,
                  body_part_id: 2)
 
-WorkOut.create!(name: "ダンベルハンマーカール",
+TrainingMenu.create!(name: "ダンベルハンマーカール",
                  training_type_id: 2,
                  body_part_id: 1)
 
-WorkOut.create!(name: "ダンベルショルダープレス",
+TrainingMenu.create!(name: "ダンベルショルダープレス",
                  training_type_id: 2,
                  body_part_id: 4)
 
-WorkOut.create!(name: "ダンベルサイドレイズ",
+TrainingMenu.create!(name: "ダンベルサイドレイズ",
                  training_type_id: 2,
                  body_part_id: 4)
 
-WorkOut.create!(name: "プッシュアップ",
+TrainingMenu.create!(name: "プッシュアップ",
                  training_type_id: 4,
                  body_part_id: 2)
 
-WorkOut.create!(name: "チンニング",
+TrainingMenu.create!(name: "チンニング",
                  training_type_id: 4,
                  body_part_id: 5)
+
+      
+
+#########WorkOutテーブル#################
+WorkOut.create!(training_date: '2020-02-23',
+                rep: 5,
+                set: 5,
+                weight: 65,
+                user_id: 2,
+                training_menu_id: 3)
+
+WorkOut.create!(training_date: '2020-02-23',
+                rep: 5,
+                set: 5,
+                weight: 80,
+                user_id: 2,
+                training_menu_id: 1)
+
+WorkOut.create!(training_date: '2020-02-23',
+                rep: 5,
+                set: 5,
+                weight: 50,
+                user_id: 2,
+                training_menu_id: 5)
+
+WorkOut.create!(training_date: '2020-02-23',
+                rep: 15,
+                set: 3,
+                weight: 14,
+                user_id: 2,
+                training_menu_id: 8)
+
+WorkOut.create!(training_date: '2020-02-22',
+                rep: 5,
+                set: 5,
+                weight: 90,
+                user_id: 2,
+                training_menu_id: 2)
+                
+WorkOut.create!(training_date: '2020-02-22',
+                rep: 5,
+                set: 5,
+                weight: 40,
+                user_id: 2,
+                training_menu_id: 4)
+                
+WorkOut.create!(training_date: '2020-02-22',
+                rep: 15,
+                set: 3,
+                weight: 9,
+                user_id: 2,
+                training_menu_id: 7)
+                
+WorkOut.create!(training_date: '2020-02-22',
+                rep: 15,
+                set: 5,
+                weight: 5,
+                user_id: 2,
+                training_menu_id: 9)
+
 

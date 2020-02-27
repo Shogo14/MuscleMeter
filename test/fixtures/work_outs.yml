@@ -1,7 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  training_date: 2020-02-22
+  rep: 1
+  set: 1
+  user: one
+  training_menu: one
 
 two:
-  name: MyString
+  training_date: 2020-02-22
+  rep: 1
+  set: 1
+  user: two
+  training_menu: two

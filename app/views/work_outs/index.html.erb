@@ -1,17 +1,15 @@
 <% provide(:title, 'All WorkOuts') %>
-<h1>トレーニングメニュー一覧</h1>
+<h1>トレーニング履歴</h1>
 <div class ="new_work">
-  <%= render 'work_out_form' %>
 </div>
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">トレーニング名</th>
-      <th scope="col">種類</th>
-      <th scope="col">部位</th>
-      <% if logged_in? && current_user.admin? %>
-        <th scope="col">削除</th>
-      <% end %>
+      <th scope="col">date</th>
+      <th scope="col">training</th>
+      <th scope="col">weight</th>
+      <th scope="col">rep</th>
+      <th scope="col">set</th>
     </tr>
   </thead>
   <tbody>

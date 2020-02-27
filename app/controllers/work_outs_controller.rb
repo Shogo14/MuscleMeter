@@ -1,49 +1,35 @@
 class WorkOutsController < ApplicationController
-  helper SessionsHelper
-  before_action :new_work_out, only: [:index]
-  before_action :training_types, only: [:create, :index]
-  before_action :body_parts, only: [:create, :index]
-  before_action :admin_user, only: [:destroy]
-  def index
-      @work_outs = WorkOut.all
-  end
-
-  def create
-    @work_out = WorkOut.new(work_params)
-    if @work_out.save
-      flash[:success] = "新しいトレーニングメニューの登録が完了しました。"
-      redirect_to work_outs_url
-    else
-      flash[:info] = "失敗。"
-      redirect_to work_outs_url
+    helper SessionsHelper
+    before_action :training_menus
+    def index
+        @work_outs = WorkOut.where(user_id: current_user.id)
     end
-  end
 
-  def destroy
-    WorkOut.find(params[:id]).destroy
-    flash[:success] = "トレーニングを削除しました。"
-    redirect_to work_outs_url
-  end
-
-  private
-      def work_params
-          params.require(:work_out).permit(:name, :training_type_id, :body_part_id)
-      end
-
-      def new_work_out
+    def new
         @work_out = WorkOut.new
-      end
+    end
 
-      def training_types
-        @training_types = TrainingType.all
-      end
+    def create
+        @work_out = WorkOut.new(work_out_params)
+        if @work_out.save
+          flash[:info] = "登録完了！"
+          redirect_to new_work_out_url
+        else
+          render 'new'
+        end
+    end
 
-      def body_parts
-        @body_parts = BodyPart.all
-      end
+    private
+        def training_menus
+            @training_menus = TrainingMenu.all
+        end
 
-      # 管理者かどうか確認
-      def admin_user
-        redirect_to(root_url) unless current_user.admin?
-      end
+        def work_out_params
+          params.require(:work_out).permit(:training_date, 
+                                            :user_id, 
+                                            :training_menu_id,
+                                            :weight,
+                                            :rep,
+                                            :set)
+        end
 end

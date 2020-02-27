@@ -1,8 +1,22 @@
 <%= form_for(@work_out) do |f| %>
-    <div class="work_menu_field" style="display:inline-flex">
-        <%= f.text_field :name, placeholder: "新規トレーニング名" %>
-        <%= f.collection_select :training_type_id, @training_types, :id, :name, include_blank: "種類" %>
-        <%= f.collection_select :body_part_id, @body_parts, :id, :name, include_blank: "部位" %>
-        </div>
-        <%= f.submit "新規トレーニング登録", class: "btn btn-primary" %>
-<% end %>
+    <%= render 'error_messages', object: @work_out %>
+  
+    <%= f.label :training_date %>
+    <%= f.date_field :training_date, value: Time.now.strftime("%Y-%m-%d"), class: 'form-control' %>
+
+    <%= f.label :training_menu_id %>
+    <%= f.collection_select :training_menu_id, @training_menus, :id, :name, include_blank: "選択してください" %>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  
+    <%= f.label :weight %>
+    <%= f.text_field :weight, class: 'form-control' %>
+  
+    <%= f.label :rep %>
+    <%= f.select :rep, options_for_select((1..30).to_a, 5) , class: 'form-control' %>
+  
+    <%= f.label :set %>
+    <%= f.select :set, options_for_select((1..8).to_a, 5) , class: 'form-control' %>
+  
+    <%= f.submit "登録", class: "btn btn-primary" %>
+  <% end %>

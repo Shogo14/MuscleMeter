@@ -1,0 +1,10 @@
+<tr>
+  <td><%= link_to training_menu.name, training_menu %></td>
+  <td><%= link_to training_menu.training_type.name, training_menu.training_type %></td>
+  <td><%= link_to training_menu.body_part.name, training_menu.body_part %></td>
+  <% if logged_in? && current_user.admin? %>
+    <td>
+      <%= link_to "delete", training_menu, method: :delete,data: { confirm: "本当に削除しますか？" } %>
+    </td>
+  <% end %>
+</tr>
