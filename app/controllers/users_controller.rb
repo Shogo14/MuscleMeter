@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update,]
   before_action :admin_user,     only: :destroy
 
   def index
@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    training_dates = @user.work_outs.group(:training_date).select(:training_date).limit(2).pluck(:training_date)
+    @latest_work_outs = @user.work_outs.where(training_date: training_dates).paginate(page: params[:page])
     redirect_to root_url and return unless @user.activated?
   end
 

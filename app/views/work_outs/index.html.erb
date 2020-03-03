@@ -13,7 +13,15 @@
     </tr>
   </thead>
   <tbody>
-  <%= render @work_outs %>
+  <% @work_outs.each do |work_out| %>
+    <tr>
+      <td><%= link_to work_out.training_date, work_out %></td>
+      <td><%= link_to work_out.training_menu.name, work_out.training_menu %></td>
+      <td><%= work_out.weight %></td>
+      <td><%= work_out.rep %></td>
+      <td><%= work_out.set %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 

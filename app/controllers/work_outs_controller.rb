@@ -2,7 +2,7 @@ class WorkOutsController < ApplicationController
     helper SessionsHelper
     before_action :training_menus
     def index
-        @work_outs = WorkOut.where(user_id: current_user.id)
+        @work_outs = WorkOut.where(user_id: current_user.id).order(params[:sort]).paginate(page: params[:page])
     end
 
     def new
