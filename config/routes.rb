@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'users/new'
   constraints ->  request { request.session[:user_id].present? } do
     # ログインしてる時のパス
-    root 'work_outs#index'
+    root 'users#current_user_home'
   end
   # ログインしてない時のパス
   root 'static_pages#home'
