@@ -9,7 +9,11 @@
   </aside>
   <div class="col-md-8">
     <% if @user.work_outs.any? %>
-      <h3>直近２回分トレーニング履歴 </h3>
+      <h3>直近ワークアウト履歴 </h3>
+      <h4 style="display: inline;">ワークアウト登録</h4>
+      <%= link_to new_work_out_path do %>
+      <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+      <% end %>
       <ol class="workouts">
         <%= render @latest_work_outs %>
       </ol>
