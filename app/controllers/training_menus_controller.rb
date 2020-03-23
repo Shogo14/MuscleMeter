@@ -1,11 +1,16 @@
 class TrainingMenusController < ApplicationController
     helper SessionsHelper
-    before_action :new_training_menu, only: [:index]
-    before_action :training_types, only: [:create, :index]
-    before_action :body_parts, only: [:create, :index]
     before_action :admin_user, only: [:destroy]
     def index
         @training_menus = TrainingMenu.all
+    end
+
+    def new
+      @training_menu = TrainingMenu.new
+      @training_types = TrainingMenu.group(:training_type).order(:training_type).pluck(:training_type)
+      @body_parts = TrainingMenu.group(:body_part_main).order(:body_part_main).pluck(:body_part_main)
+      @body_parts.push(TrainingMenu.group(:body_part_sub1).order(:body_part_sub1).pluck(:body_part_sub1)).push(TrainingMenu.group(:body_part_sub2).order(:body_part_sub2).pluck(:body_part_sub2))
+      @body_parts.flatten!.uniq!
     end
   
     def create
@@ -28,18 +33,6 @@ class TrainingMenusController < ApplicationController
     private
         def training_menu_params
             params.require(:training_menu).permit(:name, :training_type_id, :body_part_id)
-        end
-  
-        def new_training_menu
-          @training_menu = TrainingMenu.new
-        end
-  
-        def training_types
-          @training_types = TrainingType.all
-        end
-  
-        def body_parts
-          @body_parts = BodyPart.all
         end
   
         # 管理者かどうか確認

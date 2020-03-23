@@ -1,7 +1,9 @@
-<tr>
-  <td><%= link_to training_menu.name, training_menu %></td>
-  <td><%= link_to training_menu.training_type.name, training_menu.training_type %></td>
-  <td><%= link_to training_menu.body_part.name, training_menu.body_part %></td>
+<tr align="center">
+  <td><%= training_menu.name %></td>
+  <td><%= training_menu.training_type %></td>
+  <td><%= training_menu.body_part_main %></td>
+  <td><%= training_menu.body_part_sub1 %></td>
+  <td><%= training_menu.body_part_sub2 %></td>
   <% if logged_in? && current_user.admin? %>
     <td>
       <%= link_to "delete", training_menu, method: :delete,data: { confirm: "本当に削除しますか？" } %>

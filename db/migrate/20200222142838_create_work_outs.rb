@@ -6,7 +6,7 @@ class CreateWorkOuts < ActiveRecord::Migration[5.2]
       t.references :training_menu, foreign_key: true
       t.float :weight
       t.integer :rep
-      t.integer :set
+      t.integer :set_count
 
       t.timestamps
     end

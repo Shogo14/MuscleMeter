@@ -1,23 +1,38 @@
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-6">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
     </section>
-    <h3>直近ワークアウト履歴ß
+    <h3>直近ワークアウト履歴</h3>
     <h4 style="display: inline;">ワークアウト登録</h4>
-    <% if @user.work_outs.any? %>
       <%= link_to new_work_out_path do %>
         <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
       <% end %>
-      <ol class="workouts">
-        <%= render @latest_work_outs %>
-      </ol>
-      <%= will_paginate @latest_work_outs %>
-    <% end %>
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">トレーニング</th>
+          <th scope="col">最終トレーニング日</th>
+          <th scope="col">重量</th>
+          <th scope="col">回数</th>
+          <th scope="col">セット数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @latest_work_outs.each do |id,training_date| %>
+          <% work = @user.work_outs.find_by(training_menu_id: id, training_date: training_date) %>
+          <tr>
+            <td><%= TrainingMenu.find(id).name %></td>
+            <td><%= training_date %></td>
+            <td><%= work.weight %></td>
+            <td><%= work.rep %></td>
+            <td><%= work.set_count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </aside>
-  <div class="col-md-8">
-  </div>
 </div>

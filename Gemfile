@@ -18,7 +18,15 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails', '4.3.1'
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# font-awesome using
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
+
+# graph using
+gem 'chartkick', '~> 3.3', '>= 3.3.1'
+gem 'groupdate', '~> 2.5', '>= 2.5.2'
+gem 'lazy_high_charts'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

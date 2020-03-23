@@ -1,8 +1,0 @@
-<tr>
-  <td><%= link_to body_part.name, body_part %></td>
-  <% if logged_in? && current_user.admin? %>
-    <td>
-      <%= link_to "delete", body_part, method: :delete,data: { confirm: "本当に削除しますか？" } %>
-    </td>
-  <% end %>
-</tr>

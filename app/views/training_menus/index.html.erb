@@ -1,14 +1,13 @@
 <% provide(:title, 'All TrainingMenus') %>
 <h1>トレーニングメニュー一覧</h1>
-<div class ="new_work">
-  <%= render 'training_menu_form' %>
-</div>
 <table class="table table-hover">
   <thead class="thead-dark">
-    <tr>
+    <tr align="center">
       <th scope="col">トレーニング名</th>
       <th scope="col">種類</th>
-      <th scope="col">部位</th>
+      <th scope="col">主要負荷筋肉部位</th>
+      <th scope="col">サブ負荷筋肉部位１</th>
+      <th scope="col">サブ負荷筋肉部位２</th>
       <% if logged_in? && current_user.admin? %>
         <th scope="col">削除</th>
       <% end %>

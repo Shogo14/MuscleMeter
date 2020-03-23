@@ -1,8 +1,7 @@
-<li id="workout-<%= work_out.id %>">
-  <span class="content"><%= work_out.training_menu.name %></span>
-  <span class="content">重量　<%= work_out.weight %>kg</span>
-  <span class="content"><%= work_out.rep %>回 × <%= work_out.set %>セット</span>
-  <span class="timestamp">
-    トレーニング日 <%= work_out.training_date %> 
-  </span>
-</li>
+<tr>
+  <td><%= link_to work_out.training_date, work_out %></td>
+  <td><%= link_to work_out.training_menu.name, work_out.training_menu %></td>
+  <td><%= work_out.weight %></td>
+  <td><%= work_out.rep %></td>
+  <td><%= work_out.set_count %></td>
+</tr>

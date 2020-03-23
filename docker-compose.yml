@@ -6,6 +6,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: root
+      TZ: "Asia/Tokyo"
     ports:
       - "3306:3306"
 
