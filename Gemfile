@@ -24,7 +24,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
 
 # graph using
-gem 'chartkick', '~> 3.3', '>= 3.3.1'
+gem 'chartkick', '~> 3.4'
 gem 'groupdate', '~> 2.5', '>= 2.5.2'
 gem 'lazy_high_charts'
 
